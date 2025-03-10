@@ -1,0 +1,160 @@
+/* General */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fb;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+input[type="text"] {
+    padding: 12px;
+    font-size: 16px;
+    width: 50%;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #ecf4fd;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #3498db;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Alert messages */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.alert.success {
+    background-color: #d0e9f7;
+    color: #2980b9;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #ecf4fd;
+    font-weight: bold;
+}
+
+td {
+    background-color: white;
+}
+
+td button {
+    background-color: #3498db;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+td button:hover {
+    background-color: #2980b9;
+}
+
+/* Modal */
+#updateModal {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 400px;
+}
+
+#updateModal h2 {
+    text-align: center;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    form {
+        flex-direction: column;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+/* Specific Alert Style */
+.alert {
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #d0e9f7;
+    color: #2980b9;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.task-enter-active, .task-leave-active {
+    transition: opacity 0.5s;
+}
+
+.task-enter, .task-leave-to {
+    opacity: 0;
+}

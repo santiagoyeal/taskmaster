@@ -1,0 +1,42 @@
+services:
+  web:
+    build:
+      context: ./app   # Ruta al Dockerfile de PHP
+      dockerfile: Dockerfile
+    container_name: web1
+    volumes:
+      - ./app:/var/www/html
+    ports:
+      - "9080:80"
+    networks:
+      - app_network
+    depends_on:
+      - db  # Asegura que la base de datos se inicie antes de la app
+
+  db:
+    build:
+      context: ./db  # Ruta al Dockerfile de MySQL
+      dockerfile: Dockerfile
+    container_name: db1
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: tareas_db
+    ports:
+      - "9306:3306"
+    networks:
+      - app_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin1
+    environment:
+      PMA_HOST: db1
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "9081:80"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
